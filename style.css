@@ -1,0 +1,267 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #e6d5e6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.title{
+    font-size: 50px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.60);
+}
+
+.container{
+    width: 550px;
+    padding: 25px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    margin-top: 10px;
+}
+
+.container .wining_number{
+    display: flex;
+    box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 7px;
+}
+
+.wining_number div{
+    width: 50%;
+    padding: 15px 0;
+    background: red;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Gemunu Libre', sans-serif;
+}
+.wining_number span{
+    margin: 0 5px;
+}
+
+.wining_number .o_wins{
+    border-radius: 7px 0 0 7px;
+    background: #A80D2A;
+}
+
+.wining_number .x_wins{
+    border-radius: 0 7px 7px 0;
+    background: #183153;
+}
+
+.container .starting_page,
+.container .winner_page{
+    width: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border-radius: 10px;
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Gemunu Libre', sans-serif;
+    margin-top: 30px;
+    display: block;
+}
+
+.starting_page h4{
+    font-size: 32px;
+    text-align: center;
+}
+
+.starting_page .button{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 35px;
+}
+
+.button button{
+    padding: 20px 30px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px 0 rgba(31, 38, 135, 0.37);
+    transition: 0.5s;
+}
+
+.button button:first-child{
+    background: #183153;
+}
+
+.button button:last-child{
+    background: #A80D2A;
+}
+
+.button button:hover{
+    transform: scale(0.90);
+}
+
+
+.container .main_page{
+    margin-top: 30px;
+    display: none;
+}
+
+.container .main_page .board{
+    padding: 25px;
+    margin-top: 30px;
+    width: 100%;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 25px 0 rgba(31, 38, 135, 0.37);
+    position: relative;
+    overflow: hidden;
+}
+
+.container .main_page .board .timer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px;
+    background: #183153;
+    animation: animate 4s linear forwards;
+}
+
+@keyframes animate {
+    from{
+        width: 0;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+
+.container .main_page .board .turn_btn{
+    display: flex;
+    height: 60px;
+    width: 310px;
+    margin: auto;
+    border-radius: 7px;
+    box-shadow: 0 0 15px rgba(31, 38, 135, 0.37);
+    position: relative;
+}
+
+.container .main_page .board .turn_btn button{
+    height: 100%;
+    width: 50%;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 25px;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.60);
+}
+
+.container .main_page .board .turn_btn button.o_turn{
+    left: 155px;
+    z-index: 3;
+    color: #000;
+}
+
+.container .main_page .board .turn_btn .showChange{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    border-radius: 7px;
+    background: #183153;
+    z-index: 1;
+    transition: 0.2s;
+}
+
+
+.board .btns{
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.board .btns .btn{
+    width: calc(500px/3 - 25px);
+    height: calc(500px/3 - 25px);
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 0 8px rgba(31, 38, 135, 0.37);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    font-weight: bold;
+    transition: 0.2s;
+    color: #fff;
+}
+
+.board .btns.x .btn:hover::before{
+    content: 'X';
+}
+
+.board .btns.x .btn:hover{
+    background: #183153;
+    color: #fff;
+}
+
+.board .btns.o .btn:hover::before{
+    content: 'O';
+}
+
+.board .btns.o .btn:hover{
+    background: #A80D2A;
+    color: #fff;
+}
+
+
+.container .winner_page{
+    display: none;
+}
+
+.winner_page h2{
+    font-size: 35px;
+    font-family: 'Gemunu Libre', sans-serif;
+    text-align: center;
+}
+
+.winner_page .winnerText{
+    font-size: 50px;
+    color: #183153;
+}
+
+.winner_page .button{
+    width: 100%;
+    text-align: center;
+    margin-top: 25px;
+}
